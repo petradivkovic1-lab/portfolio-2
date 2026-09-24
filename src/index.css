@@ -1,0 +1,809 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Geist:Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://static.figma.com/font/Geist_wght__1') format('woff2');
+}
+
+:root {
+  color: #000;
+  background: #fff;
+  font-family: 'Geist:Regular', Arial, sans-serif;
+  font-synthesis: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 3px;
+}
+
+/* ─── Site header ─── */
+
+.site-header {
+  padding: 13px 26px 0;
+  font-size: clamp(2rem, 4.23vw, 4rem);
+  line-height: 1.3;
+  text-transform: capitalize;
+}
+
+.site-header a,
+.site-header button {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.header-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0 28px;
+  min-width: 0;
+}
+
+/* Nav word buttons */
+.nav-word,
+.site-title {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.site-title {
+  white-space: nowrap;
+}
+
+/* Commas via ::after — inline-block keeps them outside underline scope */
+.header-row .nav-word::after {
+  content: ',';
+  display: inline-block;
+}
+
+.header-row .nav-word--last::after {
+  content: '';
+}
+
+/* Murals appears in row 1 on mobile, row 2 on desktop */
+.nav-word--murals-mobile { display: none; }
+
+@media (max-width: 800px) {
+  .nav-word--murals-mobile { display: inline; }
+  .nav-word--murals-desktop { display: none; }
+}
+
+/* The em-dash separator */
+.header-rule {
+  flex: 0 0 auto;
+}
+
+/* Active state — 3px underline matches the SVG stroke weight from the Figma */
+.site-header .active {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.06em;
+  text-decoration-skip-ink: none;
+}
+
+/* ─── Home portraits ─── */
+
+.home-portraits {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100dvh - 160px);
+  padding: 24px 26px 48px;
+}
+
+.home-portraits__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ─── Design project grid ─── */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(100, 1fr);
+  grid-template-rows: repeat(4, 520px);
+  column-gap: 0;
+  padding: 42px 32px 0;
+}
+
+.project {
+  min-width: 0;
+}
+
+.project__image {
+  display: block;
+  width: 100%;
+  height: 417px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: #f4f4f4;
+  cursor: zoom-in;
+}
+
+.project__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  transition: transform 350ms ease;
+}
+
+.project__image:hover img {
+  transform: scale(1.015);
+}
+
+.project__caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 6px;
+  font-size: 16px;
+  line-height: 1.15;
+}
+
+.project__caption h2,
+.project__caption p {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.project__caption p {
+  color: #9c9c9c;
+  text-align: right;
+}
+
+/* Grid placements — 100-column track, 4 rows */
+.project--ear        { grid-column: 1 / 20;   grid-row: 1; }
+.project--samizdat   { grid-column: 22 / 61;  grid-row: 1; }
+.project--foraging   { grid-column: 63 / 101; grid-row: 1; }
+.project--preko      { grid-column: 1 / 40;   grid-row: 2; }
+.project--petak      { grid-column: 42 / 62;  grid-row: 2; }
+.project--publication{ grid-column: 1 / 41;   grid-row: 3; }
+.project--safety     { grid-column: 44 / 86;  grid-row: 3; }
+.project--panacea    { grid-column: 1 / 21;   grid-row: 4; }
+.project--tidal      { grid-column: 24 / 62;  grid-row: 4; }
+
+/* ─── Illustration grid ─── */
+
+.illus-grid {
+  grid-template-rows: 425px 425px 497px 497px 497px;
+}
+
+/* Row 1 */
+.project--illu-kulturpunkt { grid-column: 2 / 40;  grid-row: 1; }
+.project--illu-halter      { grid-column: 46 / 94; grid-row: 1; }
+
+/* Row 2 */
+.project--illu-kako   { grid-column: 2 / 40;  grid-row: 2; }
+.project--illu-pogon  { grid-column: 42 / 74; grid-row: 2; }
+.project--illu-klimat { grid-column: 76 / 98; grid-row: 2; }
+
+/* Row 3 */
+.project--illu-kofer { grid-column: 2 / 27;  grid-row: 3; }
+.project--illu-brlog { grid-column: 29 / 50; grid-row: 3; }
+
+/* Row 4 — personal work (3 images) */
+.project--illu-pers-1 { grid-column: 2 / 35;  grid-row: 4; }
+.project--illu-pers-2 { grid-column: 37 / 68; grid-row: 4; }
+.project--illu-pers-3 { grid-column: 70 / 99; grid-row: 4; }
+
+/* Row 5 — personal work (2 images) */
+.project--illu-pers-4 { grid-column: 2 / 51;  grid-row: 5; }
+.project--illu-pers-5 { grid-column: 53 / 99; grid-row: 5; }
+
+/* Row 4 */
+.project--illu-anim  { grid-column: 1 / 51;  grid-row: 4; }
+.project--illu-figur { grid-column: 53 / 92; grid-row: 4; }
+
+/* Row 5 — Šatormen */
+.project--illu-sator-a { grid-column: 2 / 26;  grid-row: 5; }
+.project--illu-sator-b { grid-column: 27 / 51; grid-row: 5; }
+.project--illu-sator-c { grid-column: 52 / 76; grid-row: 5; }
+
+/* Row 6 — personal work sketches */
+.project--illu-sketch-a { grid-column: 3 / 42;  grid-row: 6; }
+.project--illu-sketch-b { grid-column: 42 / 62; grid-row: 6; }
+.project--illu-sketch-c { grid-column: 64 / 87; grid-row: 6; }
+
+/* Image heights — rows 1–2 shorter, rows 3–6 taller */
+.project--illu-kulturpunkt .project__image,
+.project--illu-halter .project__image,
+.project--illu-kako .project__image,
+.project--illu-pogon .project__image,
+.project--illu-klimat .project__image {
+  height: 368px;
+}
+
+.project--illu-kofer .project__image,
+.project--illu-brlog .project__image,
+.project--illu-pers-1 .project__image,
+.project--illu-pers-2 .project__image,
+.project--illu-pers-3 .project__image,
+.project--illu-pers-4 .project__image,
+.project--illu-pers-5 .project__image,
+.project--illu-anim .project__image,
+.project--illu-figur .project__image,
+.project--illu-sator-a .project__image,
+.project--illu-sator-b .project__image,
+.project--illu-sator-c .project__image,
+.project--illu-sketch-a .project__image,
+.project--illu-sketch-b .project__image,
+.project--illu-sketch-c .project__image {
+  height: 440px;
+}
+
+/* ─── Illustration footer ─── */
+
+.illus-footer {
+  padding: 24px 32px 64px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.illus-footer a {
+  color: inherit;
+  text-underline-offset: 0.1em;
+}
+
+@media (max-width: 800px) {
+  .illus-footer {
+    padding: 16px 8px 48px;
+    font-size: 16px;
+  }
+}
+
+/* ─── Project detail view ─── */
+
+.project-detail {
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  gap: 0 56px;
+  padding: 32px 32px 80px;
+  align-items: start;
+}
+
+.project-detail__sidebar {
+  position: sticky;
+  top: 24px;
+}
+
+.detail-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-bottom: 8px;
+}
+
+.back-btn {
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.back-btn img {
+  display: block;
+}
+
+.detail-title {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.detail-desc {
+  margin-top: 24px;
+  margin-left: 49px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detail-desc p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.detail-link {
+  font-size: 20px;
+  font-weight: 400;
+  color: inherit;
+  text-underline-offset: 0.1em;
+}
+
+.detail-images {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.detail-figure {
+  margin: 0;
+}
+
+.detail-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.detail-figure__credit {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #9c9c9c;
+}
+
+.detail-images img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ─── Murals ─── */
+
+.murals-page {
+  padding: 42px 32px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.mural-row {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.mural-item {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.mural-item__btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.mural-item img {
+  display: block;
+  width: 100%;
+  height: 417px;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 350ms ease;
+}
+
+.mural-item__btn:hover img {
+  transform: scale(1.015);
+}
+
+.mural-caption {
+  margin: 8px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Row proportions from Figma: 626/(626+625), 336/(336+567), 626/(626+556), 324/(324+626) */
+.mural-row--r1 .mural-item:first-child { width: 50.04%; }
+.mural-row--r1 .mural-item:last-child  { flex: 1; }
+
+.mural-row--r2 .mural-item:first-child { width: 37.21%; }
+.mural-row--r2 .mural-item:last-child  { flex: 1; }
+
+.mural-row--r3 .mural-item:first-child { width: 52.97%; }
+.mural-row--r3 .mural-item:last-child  { flex: 1; }
+
+.mural-row--r4 .mural-item:first-child { width: 34.11%; }
+.mural-row--r4 .mural-item:last-child  { flex: 1; }
+
+@media (max-width: 800px) {
+  .murals-page {
+    padding: 24px 8px 48px;
+    gap: 24px;
+  }
+
+  .mural-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .mural-row .mural-item,
+  .mural-row .mural-item:first-child,
+  .mural-row .mural-item:last-child {
+    width: 100%;
+    flex: none;
+  }
+
+  .mural-item img {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ─── About page ─── */
+
+.about-page {
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  gap: 0 56px;
+  padding: 42px 32px 80px;
+  align-items: start;
+}
+
+.about-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.about-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-bio p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.about-exhibitions {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.about-exh-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-exh-heading {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  border-bottom: 1px solid #000;
+  padding-bottom: 8px;
+}
+
+.about-exh-year {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 0 16px;
+  align-items: start;
+}
+
+.exh-year {
+  font-size: 16px;
+  font-weight: 400;
+  padding-top: 1px;
+  color: #9c9c9c;
+}
+
+.about-exh-year ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.about-exh-year li {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+@media (max-width: 800px) {
+  .about-page {
+    grid-template-columns: 1fr;
+    gap: 32px 0;
+    padding: 24px 8px 48px;
+  }
+
+  .about-bio p {
+    font-size: 16px;
+  }
+}
+
+/* ─── Contact page ─── */
+
+.contact-page {
+  padding: 42px 32px 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100dvh - 160px);
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+}
+
+.contact-label {
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  color: #000;
+  min-width: 100px;
+}
+
+.contact-link {
+  position: relative;
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  font-weight: 400;
+  color: inherit;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.copy-confirm {
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: #9c9c9c;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.copy-confirm--visible {
+  opacity: 1;
+}
+
+@media (max-width: 800px) {
+  .contact-page {
+    padding: 24px 8px 48px;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .contact-link {
+    font-size: 16px;
+  }
+
+  .contact-label {
+    font-size: 16px;
+  }
+}
+
+/* ─── Empty sections ─── */
+
+.empty-section {
+  min-height: 40vh;
+}
+
+/* ─── Lightbox ─── */
+
+.lightbox {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 56px 24px 24px;
+  background: rgb(255 255 255 / 96%);
+}
+
+.lightbox__close {
+  position: fixed;
+  z-index: 11;
+  top: 18px;
+  right: 24px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid;
+  background: transparent;
+  cursor: pointer;
+}
+
+.lightbox__content {
+  max-width: min(1100px, 100%);
+}
+
+.lightbox__content img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100dvh - 130px);
+  margin: auto;
+  object-fit: contain;
+}
+
+.lightbox__content div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 8px;
+}
+
+.lightbox__content h2,
+.lightbox__content p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.lightbox__content p {
+  color: #9c9c9c;
+  text-align: right;
+}
+
+/* ─── Tablet ─── */
+
+/* ─── Mobile ─── */
+
+@media (max-width: 800px) {
+  .site-header {
+    padding: 8px 8px 0;
+    font-size: clamp(1.7rem, 7.5vw, 3rem);
+    line-height: 1.14;
+  }
+
+  .header-row {
+    flex-wrap: wrap;
+    gap: 0 6px;
+  }
+
+
+
+  .home-portraits {
+    padding: 16px 8px 32px;
+  }
+
+  .project-grid {
+    display: block;
+    padding: 46px 8px 40px;
+  }
+
+  .project {
+    margin-bottom: 34px;
+  }
+
+  /* Companion images sit tight below main in mobile */
+  .project.companion-img {
+    margin-bottom: 4px;
+  }
+
+  .project__image {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .project--ear .project__image,
+  .project--petak .project__image,
+  .project--panacea .project__image {
+    aspect-ratio: 0.72;
+  }
+
+  .project--illu-kulturpunkt .project__image,
+  .project--illu-halter .project__image,
+  .project--illu-kako .project__image,
+  .project--illu-pogon .project__image,
+  .project--illu-klimat .project__image,
+  .project--illu-kofer .project__image,
+  .project--illu-brlog .project__image,
+  .project--illu-pers-1 .project__image,
+  .project--illu-pers-2 .project__image,
+  .project--illu-pers-3 .project__image,
+  .project--illu-pers-4 .project__image,
+  .project--illu-pers-5 .project__image,
+  .project--illu-anim .project__image,
+  .project--illu-figur .project__image,
+  .project--illu-sator-a .project__image,
+  .project--illu-sator-b .project__image,
+  .project--illu-sator-c .project__image,
+  .project--illu-sketch-a .project__image,
+  .project--illu-sketch-b .project__image,
+  .project--illu-sketch-c .project__image {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .project__caption {
+    font-size: 13px;
+  }
+
+  .project-detail {
+    grid-template-columns: 1fr;
+    gap: 32px 0;
+    padding: 24px 8px 48px;
+  }
+
+  .project-detail__sidebar {
+    position: static;
+  }
+
+  .detail-title {
+    font-size: clamp(1.6rem, 6vw, 2.5rem);
+  }
+
+  .detail-desc p {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .project__image img,
+  .portrait-item img {
+    transition: none;
+  }
+}
