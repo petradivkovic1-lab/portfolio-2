@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const A = '/assets'
+const A = `${import.meta.env.BASE_URL}assets`
 
 type Section = 'home' | 'design' | 'illustration' | 'murals' | 'about' | 'contact'
 
