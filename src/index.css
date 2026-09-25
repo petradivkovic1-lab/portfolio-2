@@ -306,8 +306,8 @@ a:focus-visible {
 
 .back-btn {
   flex: 0 0 auto;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   padding: 0;
   border: 0;
   background: none;
@@ -323,7 +323,7 @@ a:focus-visible {
 }
 
 .detail-title {
-  margin: 0;
+  margin: -5px;
   font-size: 40px;
   font-weight: 400;
   line-height: normal;
@@ -331,7 +331,8 @@ a:focus-visible {
 
 .detail-desc {
   margin-top: 24px;
-  margin-left: 49px;
+  margin-left: 40px;
+  margin-right: 12px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -345,7 +346,7 @@ a:focus-visible {
 }
 
 .detail-link {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   color: inherit;
   text-underline-offset: 0.1em;
@@ -424,7 +425,7 @@ a:focus-visible {
 
 .mural-caption {
   margin: 8px 0 0;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 400;
 }
 
@@ -444,12 +445,12 @@ a:focus-visible {
 @media (max-width: 800px) {
   .murals-page {
     padding: 24px 8px 48px;
-    gap: 24px;
+    gap: 40px;
   }
 
   .mural-row {
     flex-direction: column;
-    gap: 16px;
+    gap: 40px;
   }
 
   .mural-row .mural-item,
@@ -791,11 +792,20 @@ a:focus-visible {
   .project-detail__sidebar {
     position: static;
   }
-
+  
+.back-btn {
+  margin-top: -4px;
+}
+  
   .detail-title {
     font-size: clamp(1.6rem, 6vw, 2.5rem);
   }
-
+  
+.detail-title {
+  font-size: clamp(1.6rem, 6vw, 2.5rem);
+  margin-left: -8px;
+}
+  
   .detail-desc p {
     font-size: 16px;
   }
