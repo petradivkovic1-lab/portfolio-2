@@ -450,7 +450,7 @@ a:focus-visible {
 
   .mural-row {
     flex-direction: column;
-    gap: 16px;
+    gap: 40px;
   }
 
   .mural-row .mural-item,
