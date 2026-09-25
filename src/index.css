@@ -797,9 +797,9 @@ a:focus-visible {
     font-size: clamp(1.6rem, 6vw, 2.5rem);
   }
   
- .detail-title {
+.detail-title {
   font-size: clamp(1.6rem, 6vw, 2.5rem);
-  margin-left: -40px;
+  margin-left: -16px;
 }
   
   .detail-desc p {
