@@ -323,7 +323,7 @@ a:focus-visible {
 }
 
 .detail-title {
-  margin: 0;
+  margin: -5px;
   font-size: 40px;
   font-weight: 400;
   line-height: normal;
