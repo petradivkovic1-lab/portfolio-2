@@ -196,7 +196,7 @@ a:focus-visible {
 /* ─── Illustration grid ─── */
 
 .illus-grid {
-  grid-template-rows: 425px 425px 497px 497px 497px;
+  grid-template-rows: 471px 471px 543px 543px 543px;
 }
 
 /* Row 1 */
@@ -385,7 +385,7 @@ a:focus-visible {
   padding: 42px 32px 80px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 79px;
 }
 
 .mural-row {
@@ -717,6 +717,10 @@ a:focus-visible {
   .header-row {
     flex-wrap: wrap;
     gap: 0 6px;
+  }
+
+  .site-header .active {
+    text-decoration-thickness: 2px;
   }
 
 
