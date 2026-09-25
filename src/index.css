@@ -315,7 +315,7 @@ a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -1px;
+  margin-top: 6px;
 }
 
 .back-btn img {
@@ -792,7 +792,11 @@ a:focus-visible {
   .project-detail__sidebar {
     position: static;
   }
-
+  
+.back-btn {
+  margin-top: -2px;
+}
+  
   .detail-title {
     font-size: clamp(1.6rem, 6vw, 2.5rem);
   }
