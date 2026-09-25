@@ -332,6 +332,7 @@ a:focus-visible {
 .detail-desc {
   margin-top: 24px;
   margin-left: 40px;
+  margin-right: 12px;
   display: flex;
   flex-direction: column;
   gap: 20px;
