@@ -76,6 +76,7 @@ const foragingDetail: ProjectDetail = {
 
 const prekoDetail: ProjectDetail = {
   description: [
+    'The project was developed with fellow student Emilija Novosel as part of the Interactive Media course under the mentorship of Emil Flatz, with Luka Perić as teaching assistant and map development by Matija Novosel.',
     'The project was created to document artistic performances and interventions that have shaped Zagreb\'s public space through a network of interactive checkpoints and digital-physical installations.',
     'The application opens an archive of (un)realized interventions, forgotten performances and visionary ideas that pushed the boundaries of what was possible. The title „Over the Line" symbolizes courage, experimentation and creative freedom, as well as projects that transcended conventional frameworks and survived only as fragments, now brought back to life through the application. Citizens and passersby are invited to cross the „line" and explore new ways of thinking about urban space and its potential.',
   ],
